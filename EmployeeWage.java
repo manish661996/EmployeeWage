@@ -74,7 +74,7 @@ public class EmployeeWage {
 
 	}
 
-	
+
 	//defining a method to calculate employee wage for one day for both part and full time employee with the help of Switch case
 	public static void EmpWageUsingSwitch() {
 		//defining variable of EmpUc4 object
@@ -109,6 +109,48 @@ public class EmployeeWage {
 		//calculate employee wage for one day
 		EmpWage = EmpHrs * EmpWagePerHour ;
 		System.out.println("Employee wage : "+ EmpWage);
+	}
+
+	
+	//defining method to calculate employee wage 20 days in a month for both Part time and Full time
+	public static void ComputingEmpWageFor20Days() {
+		//variable to check employee is part time or not
+		final int IsPartTime = 1;
+		//variable to check employee is full time or not
+		final int IsFullTime = 2;
+		//variable to set employee rate per hour
+		final int EmpWagePerHour = 20;
+		//variable to set number of working days in a month
+		final int NumOfWorkingDays = 20;
+		// variable to set employee working hours in a day
+		int EmpHrs =0;
+		//variable to calculate employee wage in a day
+		int EmpWage =0;
+		//variable to store total employee wage in a month or in 20 days
+		int TotalEmpWage =0;
+
+		//using for loop loop to calculate employee wage for each day and adding to get wage for 20  days
+		for(int i =1; i<= NumOfWorkingDays ; i++) {
+
+			//checking employee is absent or present
+			int EmpAtten = ThreadLocalRandom.current().nextInt(0,3);
+			//using switch to calcuate employee working hours in a day
+			switch(EmpAtten) {
+			case IsPartTime :
+				EmpHrs = 4;
+				break;
+			case IsFullTime :
+				EmpHrs =8;
+				break;
+			default :
+				EmpHrs =0;
+				break;
+			}
+			EmpWage= EmpHrs * EmpWagePerHour;
+			TotalEmpWage = TotalEmpWage + EmpWage;
+			System.out.println("Employee wage for day:"+ i +" is "+ EmpWage);
+		}
+		System.out.println("Total employee wage for one month is "+ TotalEmpWage);
 	}
 
 }
