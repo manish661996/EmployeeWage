@@ -74,4 +74,41 @@ public class EmployeeWage {
 
 	}
 
+	
+	//defining a method to calculate employee wage for one day for both part and full time employee with the help of Switch case
+	public static void EmpWageUsingSwitch() {
+		//defining variable of EmpUc4 object
+		//variable to check employee is part time or not
+		final int IsPartTime =1;
+		// variable to check employee is full time or not
+		final int IsFullTime =2;
+		// variable to set wage of employee per hour
+		final int EmpWagePerHour =20;
+		//variable to set employee working hours in one day
+		int EmpHrs=0;
+		//variable to set employee wage in one day
+		int EmpWage=0;
+
+		//checking employee is present or absent
+		int EmpAtten = ThreadLocalRandom.current().nextInt(0,3);
+		//applying Switch in place of if to set employee working hour in a day
+		switch(EmpAtten) {
+		case IsPartTime :
+			System.out.println("Employee is part time");
+			EmpHrs = 4;
+			break;
+		case IsFullTime :
+			System.out.println("Employee is full time");
+			EmpHrs =8;
+			break;
+		default :
+			System.out.println("Employee is absent");
+			EmpHrs =0;
+			break;
+		}
+		//calculate employee wage for one day
+		EmpWage = EmpHrs * EmpWagePerHour ;
+		System.out.println("Employee wage : "+ EmpWage);
+	}
+
 }
