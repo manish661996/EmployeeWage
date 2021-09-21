@@ -18,7 +18,7 @@ public class EmployeeWage {
 		}	
 	}
 
-	
+
 	// this method will calculate the wage of employee for one day
 	public static void empWagePerDay() {
 		//full time employee value
@@ -37,6 +37,40 @@ public class EmployeeWage {
 			EmpHrs=0;
 		EmpWage= EmpHrs * EmpWagePerHour  ;
 		System.out.println("Employee wage per day : "+ EmpWage);
+
+	}
+
+	// method will add part time workers and will calculate their wage 
+	public static void PartTimeEmpWage() {
+		//variable to check employee is part time or not
+		int IsPartTime =1;
+		//variable to check employee is full time or not
+		int IsFullTime =2;
+		//employee wage per hour
+		int EmpWagePerHour =20;
+		//employee working hours in a day
+		int EmpHrs=0;
+		//employee wage according to the working hours
+		int EmpWage =0;
+		//checking employee is absent or present
+		int EmpAtten = ThreadLocalRandom.current().nextInt(0,3);
+		//setting employee working hrs according to part time or full time
+		if(EmpAtten == IsPartTime) {
+			System.out.println("Employee is part time");
+			EmpHrs = 4;
+		}	 
+		else if(EmpAtten == IsFullTime) {
+			System.out.println("Employee is full time");
+			EmpHrs = 8;
+		}
+
+		else {
+			System.out.println("Employee is absent");
+			EmpHrs =0;
+		}	 
+		// calculating employee wage for one day 
+		EmpWage = EmpHrs * EmpWagePerHour ;
+		System.out.println("Employee Wage : "+ EmpWage);
 
 	}
 
