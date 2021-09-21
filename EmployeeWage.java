@@ -111,7 +111,7 @@ public class EmployeeWage {
 		System.out.println("Employee wage : "+ EmpWage);
 	}
 
-	
+
 	//defining method to calculate employee wage 20 days in a month for both Part time and Full time
 	public static void ComputingEmpWageFor20Days() {
 		//variable to check employee is part time or not
@@ -153,4 +153,51 @@ public class EmployeeWage {
 		System.out.println("Total employee wage for one month is "+ TotalEmpWage);
 	}
 
+	//method to compute Employee wage  for 20 days and maximum 100 hrs in a month for both Part time and Full time
+	public static void ComputingEmpWageFor20DaysFor100Hrs(){
+		//variable to check employee is part time or not
+		final int IsPartTime = 1;
+		//variable to check employee is full time or not
+		final  int IsFullTime = 2;
+		//variable to set employee rate per hour
+		final  int EmpRatePerHour = 20;
+		//variable to set number of working days in a month
+		final int MaxNumOfWorkingDays = 20;
+		//variable to set maximum number of working hrs in a month
+		final int MaxNumOFWorkingHrs= 100;
+		// variable to set employee working hours in a day
+		int EmpHrs = 0;
+		//variable to store total number of hrs an employee worked out of 100 hrs
+		int TotalEmpHrs = 0;
+		//variable to store total number of days an employee worked out of 20 days
+		int TotalWorkingDays = 0;
+		//variable to store total wage of an employee 
+		int TotalEmpWage=0;
+		while (TotalEmpHrs <= MaxNumOFWorkingHrs && TotalWorkingDays <  MaxNumOfWorkingDays)
+		{
+			TotalWorkingDays++;
+			int EmpAtten = ThreadLocalRandom.current().nextInt(0,3);
+			switch (EmpAtten)
+			{
+			case IsPartTime:
+				EmpHrs = 4;
+				break;
+			case IsFullTime:
+				EmpHrs = 8;
+				break;
+			default:
+				EmpHrs = 0;
+				break;
+			}
+			TotalEmpHrs = TotalEmpHrs + EmpHrs;
+			System.out.println("Days#: " + TotalWorkingDays + " Emp Hrs : " + EmpHrs);
+		}
+		TotalEmpWage = TotalEmpHrs * EmpRatePerHour;
+		System.out.println("Total Emp Wage: " + TotalEmpWage);
+	}
+
+
+
 }
+
+
